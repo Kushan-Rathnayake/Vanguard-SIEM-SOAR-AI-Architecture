@@ -2,7 +2,7 @@
 A vendor-agnostic, closed-loop SOC &amp; SOAR architecture. Features adversary emulation (Atomic Red Team), SIEM detection engineering (Wazuh/Sysmon), serverless automation (Tines), and AI-driven incident triage (Groq/Llama-3) with a Human-in-the-Loop (HITL) active response workflow.
 
 <p align="center">
-  <img src="assets/19.) Architectural Diagram.png" alt="Project Vanguard Architecture Diagram">
+  <img src="Assets/19.) Architectural Diagram.png" alt="Project Vanguard Architecture Diagram">
   <br>
   <em>Figure 1: High-level closed-loop architecture mapping the full lifecycle from emulation to AI-triaged HITL remediation.</em>
 </p>
@@ -29,9 +29,9 @@ Instead of leaving the cloud instance open to the internet, I configured strict 
 <details>
 <summary>📸 View Infrastructure Setup Proofs</summary>
 <br>
-<img src="assets/setup_proofs/1.) Vanguard-VM (Resource Overview).png" width="800">
-<img src="assets/setup_proofs/2.) Network Security Group (NSG) Rules.png" width="800">
-<img src="assets/setup_proofs/3.) WindowsTerminal_99kguNCOMG.png" width="800">
+<img src="Assets/setup_proofs/1.) Vanguard-VM (Resource Overview).png" width="800">
+<img src="Assets/setup_proofs/2.) Network Security Group (NSG) Rules.png" width="800">
+<img src="Assets/setup_proofs/3.) WindowsTerminal_99kguNCOMG.png" width="800">
 </details>
 
 ---
@@ -42,8 +42,8 @@ Visibility is the foundation of any SOC. I deployed a local Windows 11 endpoint 
 <details>
 <summary>📸 View Telemetry Pipeline Proofs</summary>
 <br>
-<img src="assets/setup_proofs/6.) Sysmon Installation.png" width="800">
-<img src="assets/setup_proofs/4.) Wazuh Dashboard (Telemetry-Pipeline-Active).png" width="800">
+<img src="Assets/setup_proofs/6.) Sysmon Installation.png" width="800">
+<img src="Assets/setup_proofs/4.) Wazuh Dashboard (Telemetry-Pipeline-Active).png" width="800">
 </details>
 
 ---
@@ -56,10 +56,10 @@ Instead of relying on default alerts, I engineered a **Custom Level 15 Critical 
 <details>
 <summary>📸 View Attack & Custom Detection Proofs</summary>
 <br>
-<img src="assets/setup_proofs/15.) Atomic Red Team Execution (1).png" width="800">
-<img src="assets/setup_proofs/8.) Raw-Sysmon-Telemetry.png" width="800">
-<img src="assets/setup_proofs/10.) Custom Detection XML.png" width="800">
-<img src="assets/setup_proofs/9.) Custom Detection Level-15.png" width="800">
+<img src="Assets/setup_proofs/15.) Atomic Red Team Execution (1).png" width="800">
+<img src="Assets/setup_proofs/8.) Raw-Sysmon-Telemetry.png" width="800">
+<img src="Assets/setup_proofs/10.) Custom Detection XML.png" width="800">
+<img src="Assets/setup_proofs/9.) Custom Detection Level-15.png" width="800">
 </details>
 
 ---
@@ -70,13 +70,13 @@ Generating alerts is easy; preventing alert fatigue is the real challenge. I con
 **The Aggregation Engine:** To combat alert storms caused by multi-stage attacks, I engineered a 90-second data batching window in Tines. This correlates incoming events by endpoint hostname, waiting for the attack chain to finish before compiling the telemetry into a single, clean JSON array for analysis.
 
 <p align="center">
-  <img src="assets/12.) Tines SOAR Architecture Canvas.png" width="900" alt="Tines SOAR Pipeline">
+  <img src="Assets/12.) Tines SOAR Architecture Canvas.png" width="900" alt="Tines SOAR Pipeline">
 </p>
 
 <details>
 <summary>📸 View Data Correlation Proof</summary>
 <br>
-<img src="assets/setup_proofs/13.) Data Correlation Engine (aggregate_alerts_by_hostname).png" width="800">
+<img src="Assets/setup_proofs/13.) Data Correlation Engine (aggregate_alerts_by_hostname).png" width="800">
 </details>
 
 ---
@@ -87,13 +87,13 @@ Once the aggregated telemetry is batched, Tines triggers a webhook to the **Groq
 Using strict system prompt engineering, the LLM acts as a Tier 1 SOC Analyst. It parses the base64-encoded strings and command-line arguments, evaluates the threat, and formats a structured summary. Tines then uses this AI output to generate a highly detailed, color-coded incident ticket in **Jira Cloud** via Wiki Markup.
 
 <p align="center">
-  <img src="assets/17.) Automated Jira Incident Ticket (Full Image).png" width="900" alt="Jira Incident Ticket">
+  <img src="Assets/17.) Automated Jira Incident Ticket (Full Image).png" width="900" alt="Jira Incident Ticket">
 </p>
 
 <details>
 <summary>📸 View Prompt Engineering Proof</summary>
 <br>
-<img src="assets/setup_proofs/14.) Groq LLM System Prompt (executive_ai_analyst).png" width="800">
+<img src="Assets/setup_proofs/14.) Groq LLM System Prompt (executive_ai_analyst).png" width="800">
 </details>
 
 ---
@@ -104,7 +104,7 @@ A critical engineering decision in this architecture was avoiding a "blind" auto
 Instead, I built a **Human-in-the-Loop (HITL)** workflow. The SOAR pipeline pushes an interactive page to the SOC Slack channel. The "Isolate Host" button provides a secure, **authenticated deep-link** that drops the analyst directly into the Wazuh Dashboard for that specific endpoint. The analyst must log in, review the AI triage, and manually execute the isolation command.
 
 <p align="center">
-  <img src="assets/18.) Slack HITL Active Response (GIF).gif" width="800" alt="Slack Active Response Workflow">
+  <img src="Assets/18.) Slack HITL Active Response (GIF).gif" width="800" alt="Slack Active Response Workflow">
 </p>
 
 ---
@@ -113,7 +113,7 @@ Instead, I built a **Human-in-the-Loop (HITL)** workflow. The SOAR pipeline push
 Security is an ongoing process of visibility mapping. Following the MITRE ATT&CK framework, I mapped the outcomes of the Atomic Red Team emulations against my pipeline to validate defenses and identify blind spots.
 
 <p align="center">
-  <img src="assets/20.) ATT&CK Mapping 1.png" width="900" alt="MITRE ATT&CK Heatmap">
+  <img src="Assets/20.) ATT&CK Mapping 1.png" width="900" alt="MITRE ATT&CK Heatmap">
   <br>
   <em>Figure 2: Custom MITRE Navigator Heatmap.</em>
 </p>
