@@ -1,0 +1,85 @@
+{
+  "name": "Project Vanguard - Home Lab ATT&CK Map",
+  "version": "4.5",
+  "domain": "enterprise-attack",
+  "description": "Home lab project mapping my Wazuh + Tines defense pipeline against Atomic Red Team techniques. Built after completing the AttackIQ MITRE ATT&CK course because I wanted to put my detection skills to use and train them.",
+  "filters": {
+    "platforms": [
+      "Windows"
+    ]
+  },
+  "sorting": 0,
+  "layout": {
+    "layout": "side",
+    "aggregateFunction": "average",
+    "showID": false,
+    "showName": true,
+    "showAggregateScores": false,
+    "countUnscored": false
+  },
+  "hideDisabled": false,
+  "techniques": [
+    {
+      "techniqueID": "T1059.001",
+      "color": "#8fce00",
+      "comment": "STATUS: Mitigated (GREEN)\n\nEmulated an Atomic Red Team PowerShell Download Cradle. I engineered a custom Level 15 Wazuh rule to catch this specific Sysmon Event ID 1 (Process Creation) pattern, which triggered my Tines SOAR pipeline to push an enriched AI alert to Slack for immediate HITL isolation.",
+      "enabled": true,
+      "metadata": []
+    },
+    {
+      "techniqueID": "T1105",
+      "color": "#8fce00",
+      "comment": "STATUS: Mitigated (GREEN)\n\nTested downloading a payload from an external IP (Ingress Tool Transfer). Wazuh successfully ingested Sysmon Event ID 3 (Network Connection) logs, mapping the activity to an external IP. My Tines pipeline provided a direct HITL isolation link in Slack, allowing me to manually get rid of the connection of the endpoint host in two clicks (to reach the respective dashboard of the affected endpoint host).",
+      "enabled": true,
+      "metadata": []
+    },
+    {
+      "techniqueID": "T1071.001",
+      "color": "#ff6666",
+      "comment": "STATUS: Emulated (RED) - Future Goal\n\nEmulated C2 traffic over HTTPS. This is a 'blind spot' in my lab. I didn't have anything catching this because my Wazuh rules aren't tuned for encrypted C2 traffic yet. Integrating a network IDS is on my list of plans.",
+      "enabled": true,
+      "metadata": []
+    },
+    {
+      "techniqueID": "T1027",
+      "color": "#ffd966",
+      "comment": "STATUS: Detected (YELLOW)\n\nWazuh flagged the ExecutionPolicy bypass and encoded PowerShell strings in the logs. It catches this, but in a in a real enterprise, these alerts may get really noisy and need heavy tuning to avoid 'False Positives', since the -ExecutionPolicy Bypass is frequently used by legitimate IT management tools.",
+      "enabled": true,
+      "metadata": []
+    },
+    {
+      "techniqueID": "T1082",
+      "color": "#ffd966",
+      "comment": "STATUS: Detected (YELLOW)\n\nRan some system discovery commands as part of setting up the emulation and Wazuh caught these through standard process monitoring.",
+      "enabled": true,
+      "metadata": []
+    }
+  ],
+  "gradient": {
+    "colors": [
+      "#ff6666",
+      "#ffd966",
+      "#8fce00"
+    ],
+    "minValue": 0,
+    "maxValue": 100
+  },
+  "legendItems": [
+    {
+      "label": "Emulated / Missed Detections (Red Team)",
+      "color": "#ff6666"
+    },
+    {
+      "label": "Detected in Logs (Wazuh SIEM)",
+      "color": "#ffd966"
+    },
+    {
+      "label": "Mitigated (Tines SOAR Pipeline)",
+      "color": "#8fce00"
+    }
+  ],
+  "metadata": [],
+  "showTacticRowBackground": false,
+  "tacticRowBackground": "#dddddd",
+  "selectSubtechniquesWithParent": false
+}
