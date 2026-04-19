@@ -17,7 +17,7 @@ A vendor-agnostic, closed-loop SOC &amp; SOAR architecture. Features adversary e
 * **SIEM / XDR:** Wazuh 4.x
 * **SOAR (Automation):** Tines (Serverless Enterprise Pipeline)
 * **AI & Threat Intel:** Groq API (Llama-3.1-8b-instant LLM)
-* **Case Management & Paging:** Jira Cloud, Slack
+* **Case Management & ChatOps:** Jira Cloud, Slack
 
 ---
 
