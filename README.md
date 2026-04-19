@@ -29,9 +29,9 @@ Instead of leaving the cloud instance open to the internet, I configured strict 
 <details>
 <summary>📸 View Infrastructure Setup Proofs</summary>
 <br>
-<img src="Assets/setup_proofs/1.) Vanguard-VM (Resource Overview).png" width="800">
-<img src="Assets/setup_proofs/2.) Network Security Group (NSG) Rules.png" width="800">
-<img src="Assets/setup_proofs/3.) WindowsTerminal_99kguNCOMG.png" width="800">
+<img src="Assets/Setup/1.) Vanguard-VM (Resource Overview).png" width="800">
+<img src="Assets/Setup/2.) Network Security Group (NSG) Rules.png" width="800">
+<img src="Assets/Setup/3.) WindowsTerminal_99kguNCOMG.png" width="800">
 </details>
 
 ---
@@ -42,8 +42,8 @@ Visibility is the foundation of any SOC. I deployed a local Windows 11 endpoint 
 <details>
 <summary>📸 View Telemetry Pipeline Proofs</summary>
 <br>
-<img src="Assets/setup_proofs/6.) Sysmon Installation.png" width="800">
-<img src="Assets/setup_proofs/4.) Wazuh Dashboard (Telemetry-Pipeline-Active).png" width="800">
+<img src="Assets/Setup/6.) Sysmon Installation.png" width="800">
+<img src="Assets/Setup/4.) Wazuh Dashboard (Telemetry-Pipeline-Active).png" width="800">
 </details>
 
 ---
@@ -56,10 +56,10 @@ Instead of relying on default alerts, I engineered a **Custom Level 15 Critical 
 <details>
 <summary>📸 View Attack & Custom Detection Proofs</summary>
 <br>
-<img src="Assets/setup_proofs/15.) Atomic Red Team Execution (1).png" width="800">
-<img src="Assets/setup_proofs/8.) Raw-Sysmon-Telemetry.png" width="800">
-<img src="Assets/setup_proofs/10.) Custom Detection XML.png" width="800">
-<img src="Assets/setup_proofs/9.) Custom Detection Level-15.png" width="800">
+<img src="Assets/Setup/15.) Atomic Red Team Execution (1).png" width="800">
+<img src="Assets/Setup/8.) Raw-Sysmon-Telemetry.png" width="800">
+<img src="Assets/Setup/10.) Custom Detection XML.png" width="800">
+<img src="Assets/Setup/9.) Custom Detection Level-15.png" width="800">
 </details>
 
 ---
@@ -76,7 +76,7 @@ Generating alerts is easy; preventing alert fatigue is the real challenge. I con
 <details>
 <summary>📸 View Data Correlation Proof</summary>
 <br>
-<img src="Assets/setup_proofs/13.) Data Correlation Engine (aggregate_alerts_by_hostname).png" width="800">
+<img src="Assets/Setup/13.) Data Correlation Engine (aggregate_alerts_by_hostname).png" width="800">
 </details>
 
 ---
@@ -93,7 +93,7 @@ Using strict system prompt engineering, the LLM acts as a Tier 1 SOC Analyst. It
 <details>
 <summary>📸 View Prompt Engineering Proof</summary>
 <br>
-<img src="Assets/setup_proofs/14.) Groq LLM System Prompt (executive_ai_analyst).png" width="800">
+<img src="Assets/Setup/14.) Groq LLM System Prompt (executive_ai_analyst).png" width="800">
 </details>
 
 ---
